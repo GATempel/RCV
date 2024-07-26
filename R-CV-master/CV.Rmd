@@ -1,0 +1,80 @@
+---
+name: Gregor Tempel
+position: "Bachelor of Science"
+address: |
+         | Dr.-Otto-Rindt Str. 17, 01968 Senftenberg, Germany
+phone: +49 175 8445 5270 
+email: "tempel.gregor@posteo.de"
+github: GATempel
+linkedin: GATempel
+headcolor: 009ACD
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::awesomecv:
+    keep_tex: false
+always_allow_html: yes
+header-includes:
+  \usepackage{float}
+  \usepackage{multicol}
+  \usepackage{colortbl}
+  \arrayrulecolor{white}
+  \usepackage{hhline}
+  \definecolor{light-gray}{gray}{0.95}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(ggplot2)
+library(dplyr)
+library(sf)
+library(rworldmap)
+library(stplanr)
+library(ggrepel)
+library(emojifont)
+library(fontawesome)
+library(kableExtra)
+library(huxtable)
+library(gridExtra)
+```
+
+# Berufserfahrung
+ 
+
+```{r}
+expe <- read.csv("expe.csv")
+expe %>% 
+  detailed_entries(what , when , with, where, why = c(dept, proj))
+```
+
+
+# Ausbildung
+
+
+```{r}
+edu <- read.csv("educ.csv")
+edu %>% 
+  detailed_entries(what, when, with, where, why = c(proj, grade))
+```
+
+
+
+# Fähigkeiten
+
+
+\faIcon{cogs} Technical skills
+---------------------------------
+```{r}
+edu <- read.csv("educ.csv")
+edu %>% 
+  detailed_entries(what, when, with, where, why = c(proj, grade))
+```
+
+\faIcon{language} Languages
+-------------------------------
+```{r}
+edu <- read.csv("educ.csv")
+edu %>% 
+  detailed_entries(what, when, with, where, why = c(proj, grade))
+```
+
